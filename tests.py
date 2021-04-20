@@ -185,8 +185,13 @@ class TestCase(unittest.TestCase):
         self.assertFalse(credit_card_validator(val), msg='incorrect')
 
     # Valid in prefix range 2221-2720
-    def test36(self):
+    def test37(self):
         val = '2222457385962865'
+        self.assertTrue(credit_card_validator(val), msg='incorrect')
+
+    # Valid AMEX
+    def test38(self):
+        val = '370008845867063'
         self.assertTrue(credit_card_validator(val), msg='incorrect')
 
 
