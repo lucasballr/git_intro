@@ -59,6 +59,23 @@ class TestCase(unittest.TestCase):
     def test14(self):
         val = ''
         self.assertEqual(credit_card_validator(val), False)
+    ## Not numbers
+    def test15(self):
+        val = 'asdfasdfasdfasdf'
+        self.assertEqual(credit_card_validator(val), False)
+    ## Amex that is too short
+    def test16(self):
+        val = '34985245381611'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    ## Amex with wrong prefix (Low)
+    def test17(self):
+        val = '33985245381611'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    ## Amex with wrong prefix (High)
+    def test18(self):
+        val = '38985245381611'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    
 
 if __name__ == '__main__':
     unittest.main()
