@@ -5,6 +5,11 @@ from credit_card_validator import credit_card_validator
 if __name__ == '__main__':
     unittest.main()
 
+def test1(self):
+    val = 101
+    self.assertTrue(credit_card_validator(val))
+
+'''
 def random():
     for x in range(10):
         num = '4'
@@ -92,3 +97,4 @@ def randomLuhn():
 
 random()
 randomLuhn()
+'''
