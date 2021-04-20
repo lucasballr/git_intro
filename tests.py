@@ -78,15 +78,19 @@ class TestCase(unittest.TestCase):
     ## AMEX with wrong Luhn#
     def test19(self):
         val = '349852453816110'
-        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
     ## Invalid MasterCard prefix (low)
     def test20(self):
         val = '5072076718012718'
-        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
     ## Invalid MasterCard prefix (High)
     def test21(self):
         val = '562076718012718'
-        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    ## Wrong Type
+    def test21(self):
+        val = 4535893340572712
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
     
     
 
