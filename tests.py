@@ -9,6 +9,13 @@ class TestCase(unittest.TestCase):
     def test2(self):
         val = '4535893340572712'
         self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    def test3(self):
+        val = '5372076718012718'
+        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    def test3(self):
+        val = '349852453816112'
+        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    
 
 if __name__ == '__main__':
     unittest.main()
