@@ -194,6 +194,16 @@ class TestCase(unittest.TestCase):
         val = '370008845867063'
         self.assertTrue(credit_card_validator(val), msg='incorrect')
 
+    # Just zeros
+    def test39(self):
+        val = '0000000000000000'
+        self.assertFalse(credit_card_validator(val), msg='incorrect')
+
+    # Just zeros but less of them
+    def test39(self):
+        val = '000000000000000'
+        self.assertFalse(credit_card_validator(val), msg='incorrect')
+
 
 if __name__ == '__main__':
     unittest.main()
