@@ -200,13 +200,18 @@ class TestCase(unittest.TestCase):
         self.assertFalse(credit_card_validator(val), msg='incorrect')
 
     # Just zeros but less of them
-    def test39(self):
+    def test40(self):
         val = '000000000000000'
         self.assertFalse(credit_card_validator(val), msg='incorrect')
 
     # Valid AMEX with a different way of showing string
-    def test38(self):
-        self.assertTrue(credit_card_validator("37000884"+"5867063"), msg='incorrect')
+    def test41(self):
+        self.assertTrue(credit_card_validator("37000884" + "5867063"), msg='incorrect')
+
+    # Weird characters
+    def test42(self):
+        val = '@#$^$%##$%&#$&#&'
+        self.assertFalse(credit_card_validator(val), msg='incorrect')
 
 
 if __name__ == '__main__':
