@@ -69,11 +69,11 @@ class TestCase(unittest.TestCase):
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
     ## Amex with wrong prefix (Low)
     def test17(self):
-        val = '33985245381611'
+        val = '339852453816112'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
     ## Amex with wrong prefix (High)
     def test18(self):
-        val = '38985245381611'
+        val = '389852453816112'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
     
 
