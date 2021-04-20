@@ -206,8 +206,8 @@ class TestCase(unittest.TestCase):
 
     # Valid AMEX with a different way of showing string
     def test38(self):
-        self.assertTrue(credit_card_validator(:"37000884"+"5867063"), msg='incorrect')
-        
+        self.assertTrue(credit_card_validator("37000884"+"5867063"), msg='incorrect')
+
 
 if __name__ == '__main__':
     unittest.main()
