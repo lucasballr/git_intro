@@ -115,7 +115,39 @@ class TestCase(unittest.TestCase):
     def test28(self):
         val = '3498907071804719'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
-
+    # Valid luhn Wrong prefix 1
+    def test29(self):
+        val = '2220542735795487'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn Wrong prefix 2
+    def test30(self):
+        val = '2721542735795481'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn Wrong prefix 3
+    def test31(self):
+        val = '339890707180473'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn Wrong prefix 4
+    def test32(self):
+        val = '389890707180472'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn right prefix
+    def test33(self):
+        val = '4075391852773253'
+        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn Wrong prefix 5
+    def test34(self):
+        val = '3975391852773256'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn Wrong prefix 6
+    def test35(self):
+        val = '5075391852773250'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    # Valid luhn Wrong prefix 7
+    def test36(self):
+        val = '5675391852773254'
+        self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    
 # Valid Visa = 4575391852773258
 # Valid MasterCard 5574296280008581
 # Valid Amex 349890707180471
