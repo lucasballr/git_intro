@@ -178,11 +178,12 @@ class TestCase(unittest.TestCase):
     def test35(self):
         val = '5075391852773250'
         self.assertFalse(credit_card_validator(val), msg='incorrect')
-        
+
     # Valid luhn Wrong prefix 7
     def test36(self):
         val = '5675391852773254'
         self.assertFalse(credit_card_validator(val), msg='incorrect')
+
 
 if __name__ == '__main__':
     unittest.main()
