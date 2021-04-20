@@ -47,11 +47,11 @@ class TestCase(unittest.TestCase):
     def test11(self):
         val = '45358933405727123'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
-    ## Invalid prefix (High)
+    ## Visa Invalid prefix (High)
     def test12(self):
         val = '9535893340572712'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
-    ## Invalid prefix (Low)
+    ## Visa Invalid prefix (Low)
     def test13(self):
         val = '2535893340572712'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
@@ -75,6 +75,19 @@ class TestCase(unittest.TestCase):
     def test18(self):
         val = '389852453816112'
         self.assertFalse(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    ## AMEX with wrong Luhn#
+    def test19(self):
+        val = '349852453816110'
+        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    ## Invalid MasterCard prefix (low)
+    def test20(self):
+        val = '5072076718012718'
+        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    ## Invalid MasterCard prefix (High)
+    def test21(self):
+        val = '562076718012718'
+        self.assertTrue(credit_card_validator(val), msg='{} does not meet requirements'.format(val))
+    
     
 
 if __name__ == '__main__':
