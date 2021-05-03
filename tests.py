@@ -34,10 +34,15 @@ class TestCase(unittest.TestCase):
         self.assertTrue(credit_card_validator(val), msg='incorrect')
 
 # Luhn Calculation
-def luhn(val, len=len):
-    m = list(map(int(reversed(val))))
-    result = sum(m) + sum(d+(d>=5) for d in m[::2])
-    return -result%10
+def luhn(val):
+    digits = len(val)
+    sum = int(val[digits - 1])
+    par = digits % 2 
+    for i in range(digits):
+        if (int(i) % 2 == par):
+            num = int(i) * 2
+        sum += num
+    return (sum % 10)
 
 if __name__ == '__main__':
     unittest.main()
