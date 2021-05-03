@@ -40,8 +40,8 @@ def luhn(val):
     par = digits % 2 
     for i in range(digits):
         if (int(i) % 2 == par):
-            num = int(i) * 2
-        sum += num
+            i = int(i) * 2
+        sum += i
     return (sum % 10)
 
 if __name__ == '__main__':
