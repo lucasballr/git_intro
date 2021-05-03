@@ -45,6 +45,16 @@ class TestCase(unittest.TestCase):
         for i in range(1000):
             invalShort = invalidPrefShort('8')
             credit_card_validator(invalShort)
+    
+    def test7(self):
+        for i in range(1000):
+            invalShort = invalidPrefShort('4')
+            invalShort += str(random.ranint(0,9))
+            credit_card_validator(invalShort)
+        for i in range(1000):
+            invalShort = invalidPrefShort('3')
+            invalShort += str(random.ranint(0,9))
+            credit_card_validator(invalShort)
 
 
 def invalidPref(inp):
