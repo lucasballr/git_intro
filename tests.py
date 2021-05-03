@@ -136,5 +136,6 @@ def luhn(val):
     check_sum = 0 if mod == 0 else (10 - mod)
     return check_sum
 
+
 if __name__ == '__main__':
     unittest.main()
