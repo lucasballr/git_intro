@@ -1,38 +1,43 @@
 import random
 import unittest
-from contrived_func import contrived_func
+from credit_card_validator import credit_card_validator
 
 
 class TestCase(unittest.TestCase):
 
+    # Valid Visa
     def test1(self):
-        val = 155
-        self.assertTrue(contrived_func(val), msg='incorrect')
-
+        val = '4'
+        val += str(random.randint(10000000000000, 99999999999999))
+        val += str(luhn(val))
+        self.assertTrue(credit_card_validator(val), msg='incorrect')
+    
+    # Valid Mastercard
     def test2(self):
-        val = 156
-        self.assertFalse(contrived_func(val), msg='incorrect')
+        val = '5'
+        val += str(random.randint(10000000000000, 59999999999999))
+        val += str(luhn(val))
+        self.assertTrue(credit_card_validator(val), msg='incorrect')
 
+    # Valid MasterCard 2
     def test3(self):
-        val = 6
-        self.assertFalse(contrived_func(val), msg='incorrect')
+        val = '2'
+        val += str(random.randint(22100000000000, 72099999999999))
+        val += str(luhn(val))
+        self.assertTrue(credit_card_validator(val), msg='incorrect')
 
+    # Valid AMEX
     def test4(self):
-        val = 17
-        self.assertTrue(contrived_func(val), msg='incorrect')
+        val = '3'
+        val += str(random.randint(4000000000000, 7999999999999))
+        val += str(luhn(val))
+        self.assertTrue(credit_card_validator(val), msg='incorrect')
 
-    def test5(self):
-        val = 120
-        self.assertTrue(contrived_func(val), msg='incorrect')
-
-    def test6(self):
-        val = 55
-        self.assertTrue(contrived_func(val), msg='incorrect')
-
-    def test7(self):
-        val = 56
-        self.assertFalse(contrived_func(val), msg='incorrect')
-
+# Luhn Calculation
+def luhn(val, len=len):
+    m = list(map(int(reversed(val))))
+    result = sum(m) + sum(d+(d>=5) for d in m[::2])
+    return -result%10
 
 if __name__ == '__main__':
     unittest.main()
