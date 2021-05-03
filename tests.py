@@ -13,32 +13,49 @@ class TestCase(unittest.TestCase):
     
     # Valid Mastercard
     def test2(self):
-        for i in range(100):
+        for i in range(20):
             master = masterGen()
             credit_card_validator(master)
 
     # Valid MasterCard 2
     def test3(self):
-        for i in range(100):
+        for i in range(20):
             masterTwo = masterGen2()
             credit_card_validator(masterTwo)
 
     # Valid AMEX
     def test4(self):
-        for i in range(100):
+        for i in range(20):
             amex = amexGen()
             credit_card_validator(amex)
 
     # Invalid Pref
     def test5(self):
-        for i in range(100):
-            invalid = invalidPref()
+        for i in range(20):
+            invalid = invalidPref('1')
+            credit_card_validator(invalid)
+        for i in range(20):
+            invalid = invalidPref('8')
+            credit_card_validator(invalid)
+
+    def test6(self):
+        for i in range(20):
+            invalShort = invalidPrefShort('1')
+            credit_card_validator(invalid)
+        for i in range(20):
+            invalShort = invalidPrefShort('8')
             credit_card_validator(invalid)
 
 
-def invalidPref():
-    val = '1'
+def invalidPref(inp):
+    val = inp
     val += str(random.randint(10000000000000, 99999999999999))
+    val += str(luhn(val))
+    return val
+
+def invalidPrefShort(inp):
+    val = inp
+    val += str(random.randint(1000000000000, 9999999999999))
     val += str(luhn(val))
     return val
 
