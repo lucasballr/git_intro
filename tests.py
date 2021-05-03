@@ -56,6 +56,14 @@ class TestCase(unittest.TestCase):
             invalShort += str(random.ranint(0,9))
             credit_card_validator(invalShort)
 
+    def test8(self):
+        for i in range(100000):
+            randomNum = completelyRandom()
+            credit_card_validator(randomNum)
+
+def completelyRandom():
+    val = str(random.randint(1000000000000, 10000000000000000))
+    return val    
 
 def invalidPref(inp):
     val = inp
