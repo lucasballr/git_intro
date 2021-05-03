@@ -54,20 +54,22 @@ def amexGen():
     val += str(luhn(val))
     return val
 
-
-
-
 # Luhn Calculation
 def luhn(val):
     digits = len(val)
     sum = 0
-    par = digits % 2 
     for i in range(digits):
         add = 0
-        if (int(i) % 2 == par):
-            add = int(i) * 2
+        if (i % 2 == 0):    
+            add = int(val[digits - i - 1]) * 2
+        else:
+            add = int(val[digits - i - 1])
+        if add > 9:
+            add -= 9
         sum += add
-    return (sum % 10)
+    mod = sum % 10
+    check_sum = 0 if mod == 0 else (10 - mod)
+    return check_sum
 
 if __name__ == '__main__':
     unittest.main()
