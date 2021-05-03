@@ -60,7 +60,7 @@ class TestCase(unittest.TestCase):
 
     # Random numbers
     def test8(self):
-        for i in range(100000):
+        for i in range(1000000):
             randomNum = completelyRandom()
             credit_card_validator(randomNum)
 
