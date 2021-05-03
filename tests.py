@@ -8,25 +8,25 @@ class TestCase(unittest.TestCase):
     # Valid Visa
     def test1(self):
         visa = visaGen()
-        #credit_card_validator(val)
+        credit_card_validator(val)
         print(visa)
     
     # Valid Mastercard
     def test2(self):
         master = masterGen()
-        #credit_card_validator(val)
+        credit_card_validator(val)
         print(master)
 
     # Valid MasterCard 2
     def test3(self):
         masterTwo = masterGen2()
-        #credit_card_validator(val)
+        credit_card_validator(val)
         print(masterTwo)
 
     # Valid AMEX
     def test4(self):
         amex = amexGen()
-        #credit_card_validator(val)
+        credit_card_validator(val)
         print(amex)
 
 
