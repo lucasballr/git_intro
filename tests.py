@@ -10,28 +10,28 @@ class TestCase(unittest.TestCase):
         val = '4'
         val += str(random.randint(10000000000000, 99999999999999))
         val += str(luhn(val))
-        self.assertTrue(credit_card_validator(val), msg='incorrect')
+        credit_card_validator(val)
     
     # Valid Mastercard
     def test2(self):
         val = '5'
         val += str(random.randint(10000000000000, 59999999999999))
         val += str(luhn(val))
-        self.assertTrue(credit_card_validator(val), msg='incorrect')
+        credit_card_validator(val)
 
     # Valid MasterCard 2
     def test3(self):
         val = '2'
         val += str(random.randint(22100000000000, 72099999999999))
         val += str(luhn(val))
-        self.assertTrue(credit_card_validator(val), msg='incorrect')
+        credit_card_validator(val)
 
     # Valid AMEX
     def test4(self):
         val = '3'
         val += str(random.randint(4000000000000, 7999999999999))
         val += str(luhn(val))
-        self.assertTrue(credit_card_validator(val), msg='incorrect')
+        credit_card_validator(val)
 
 # Luhn Calculation
 def luhn(val):
