@@ -7,24 +7,40 @@ class TestCase(unittest.TestCase):
 
     # Valid Visa
     def test1(self):
-        visa = visaGen()
-        credit_card_validator(visa)
+        for i in range(100):
+            visa = visaGen()
+            credit_card_validator(visa)
     
     # Valid Mastercard
     def test2(self):
-        master = masterGen()
-        credit_card_validator(master)
+        for i in range(100):
+            master = masterGen()
+            credit_card_validator(master)
 
     # Valid MasterCard 2
     def test3(self):
-        masterTwo = masterGen2()
-        credit_card_validator(masterTwo)
+        for i in range(100):
+            masterTwo = masterGen2()
+            credit_card_validator(masterTwo)
 
     # Valid AMEX
     def test4(self):
-        amex = amexGen()
-        credit_card_validator(amex)
+        for i in range(100):
+            amex = amexGen()
+            credit_card_validator(amex)
 
+    # Invalid Pref
+    def test5(self):
+        for i in range(100):
+            invalid = invalidPref()
+            credit_card_validator(invalid)
+
+
+def invalidPref():
+    val = '1'
+    val += str(random.randint(10000000000000, 99999999999999))
+    val += str(luhn(val))
+    return val
 
 def visaGen():
     val = '4'
